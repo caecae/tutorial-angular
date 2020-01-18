@@ -1,0 +1,16 @@
+# https://docs.docker.com/compose/compose-file/
+version: '3.7'
+services:
+  angular-8:
+    build:
+      context: ./docker
+      target: setup
+      args:
+        NG_VERSION: 8.3.21
+    image: ml-ng8
+    volumes:
+        - .:/wip
+    ports:
+        - 4200:4200
+    entrypoint: /bin/sh
+    command: tail -f anything
