@@ -52,3 +52,31 @@ Uses docker (>=17.05) container setup for easy development.
     ![default angular application homepage][default_angular_app]
 
 [default_angular_app]: doc/default-angular.png "Default Angular Application"
+
+### Step 2 - Create first UI components
+
+**Goal:** Create simple _homepage_ UI components: [Home, About]
+
+Refactor the default Angular application into frame and _home_ component.  Also create a new _about_ component to allow switching between 2 URLs that maps to the 2 components.
+
+1. create a feature module to contain the components
+    ````
+    ng generate module homepage --module app --routing true
+    ````
+1. create the components
+    ````
+    ng generate component homepage/home --module homepage
+    ng generate component homepage/about --module homepage --style scss
+    ````
+1. update the route to show the components ... _homepage-routing.module.ts_
+    ````
+    const routes: Routes = [
+      { path: 'home', component: HomeComponent },
+      { path: 'about', component: AboutComponent },
+    ];
+    ````
+1. test the new path, /home and /about
+    ````
+    http://localhost:4200/home
+    http://localhost:4200/about
+    ````
