@@ -80,3 +80,53 @@ Refactor the default Angular application into frame and _home_ component.  Also 
     http://localhost:4200/home
     http://localhost:4200/about
     ````
+
+### Step 3 - Use the Angular Material components
+
+**Goal:** Use Angular Material components to build visuals
+
+Refactor the Angular application to import Angular Material library and update the layout / components with Material visaul
+
+1. import the Angular Material library
+    ````
+    ng add @angular/material
+    ````
+1. choose the menu options these options
+    ````
+    Indigo/Pink theme
+    Set up HammerJS for gesture recognition? Yes
+    Set up browser animations for Angular Material? Yes
+    ````
+1. update _app.module.ts_ with the desired Angular Material components
+    ````
+    import {
+        MatToolbarModule,
+        MatIconModule,
+        MatCardModule,
+        MatButtonModule,
+        MatProgressSpinnerModule
+    } from '@angular/material';
+    ````
+1. update _app.module.ts_ imports array for the NgModule declaration
+    ````
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatProgressSpinnerModule
+    ],
+    ````
+1. update _app.component.html_ with the component elements: toolbar with 2 buttons
+    ````
+    <mat-toolbar color="primary">
+        <h1>
+        The Angular Store
+        </h1>
+        <button mat-button routerLink="/">Home</button>
+        <button mat-button routerLink="/about">About</button>
+    </mat-toolbar>
+    ````
